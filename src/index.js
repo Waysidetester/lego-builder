@@ -1,4 +1,11 @@
 import 'bootstrap';
 import './index.scss';
+import legoCharacters from './javascripts/components/legoCreations/legoCharacter';
 
-console.log('I am connected');
+const init = () => {
+  legoCharacters.displayHeads();
+  legoCharacters.displayBodys();
+  legoCharacters.displayLegs();
+};
+
+init();
