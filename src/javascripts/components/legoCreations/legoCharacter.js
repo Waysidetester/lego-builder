@@ -1,51 +1,27 @@
+import $ from 'jquery';
 import partsData from '../../data/partsData';
 import legoPrinter from './legoPrinter';
 
-let headsArr = [];
-let bodysArr = [];
-let legsArr = [];
-
-
-const displayHeads = () => {
-  partsData.legoHeads()
-    .then((heads) => {
-      headsArr = heads.data;
-      return headsArr;
-    })
-    .then((newArray) => {
-      legoPrinter.partPrinter(newArray);
-    })
-    .catch((error) => {
-      console.error(error);
+const displayAll = () => {
+  Promise.all([partsData.legoHeads(), partsData.legoBodys(), partsData.legoLegs()])
+    .then((dataArray) => {
+      legoPrinter.partPrinter(dataArray[0].data, 'current-head');
+      legoPrinter.partPrinter(dataArray[1].data, 'current-body');
+      legoPrinter.partPrinter(dataArray[2].data, 'current-legs');
     });
 };
 
-const displayBodys = () => {
-  partsData.legoBodys()
-    .then((bodys) => {
-      bodysArr = bodys.data;
-      return bodysArr;
-    })
-    .then((newArray) => {
-      legoPrinter.partPrinter(newArray);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+const legoNamer = () => {
+  let newString = '';
+  const bodyPartNames = $('.carousel-item.active');
+  $.each(bodyPartNames, (i, partName) => {
+    newString += partName.children[0].alt;
+  });
+  $('#name-container').html(`<span class="gross-name">${newString}</span>`);
 };
 
-const displayLegs = () => {
-  partsData.legoLegs()
-    .then((legs) => {
-      legsArr = legs.data;
-      return legsArr;
-    })
-    .then((newArray) => {
-      legoPrinter.partPrinter(newArray);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+const timedNamer = () => {
+  setTimeout(legoNamer, 700);
 };
 
-export default { displayHeads, displayBodys, displayLegs };
+export default { displayAll, timedNamer, legoNamer };
