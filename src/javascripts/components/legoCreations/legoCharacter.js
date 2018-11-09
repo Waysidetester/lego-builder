@@ -17,7 +17,7 @@ const legoNamer = () => {
   $.each(bodyPartNames, (i, partName) => {
     newString += partName.children[0].alt;
   });
-  $('#name-container').html(`<span class="gross-name">${newString}</span>`);
+  $('#name-container').html(`<span id="gross-name">${newString}</span>`);
 };
 
 const timedNamer = () => {
