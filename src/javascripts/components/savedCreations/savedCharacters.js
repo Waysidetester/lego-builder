@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import './savedCharacters.scss';
 
 const savedImages = [];
 
@@ -17,10 +18,12 @@ const printSaves = () => {
   let domString = '';
   $.each(savedImages, (index, savedLego) => {
     domString += `
-    <p>${savedLego.name}</p>
-    <img src='${savedLego.headUrl}'/>
-    <img src='${savedLego.bodyUrl}'/>
-    <img src='${savedLego.legsUrl}'/>
+    <div class="saved-lego card">
+      <p class="card-title">${savedLego.name}</p>
+      <img class="saved-images" src='${savedLego.headUrl}'/>
+      <img class="saved-images" src='${savedLego.bodyUrl}'/>
+      <img class="saved-images" src='${savedLego.legsUrl}'/>
+    </div>
     `;
   });
   $('#saved-legos').html(domString);
