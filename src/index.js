@@ -6,7 +6,7 @@ import legoCharacters from './javascripts/components/legoCreations/legoCharacter
 
 const init = () => {
   legoCharacters.displayAll();
-  $('document').ready(legoCharacters.legoNamer);
+  $('document').ready(legoCharacters.timedNamer);
   $('body').on('click', legoCharacters.timedNamer);
   $('#save').on('click', savedCharacters.saveAction);
 };

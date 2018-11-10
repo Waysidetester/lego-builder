@@ -1,0 +1,21 @@
+.saved-images {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.saved-lego {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  width: 23%;
+  margin: 12px auto 16px auto;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+}
