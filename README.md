@@ -9,9 +9,7 @@ This was all about calling json data asynchronously and saving modular selection
 1. run the following command to download webpage dependencies: ```npm install```
 1. open two terminals:
 
-1. In terminal one run
-
-* ```npm run json```
+1. In terminal one run ```npm run json``` This will act as a server that the json is pulled from
 
 5. In terminal two run 
 
