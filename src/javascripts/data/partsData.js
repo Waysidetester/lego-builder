@@ -1,9 +1,12 @@
 import axios from 'axios';
+import apiKeys from '../../db/apiKeys.json';
 
-const legoHeads = () => axios.get('http://localhost:3003/heads');
+const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const legoBodys = () => axios.get('http://localhost:3003/torsos');
+const legoHeads = () => axios.get(`${baseUrl}/heads.json`);
 
-const legoLegs = () => axios.get('http://localhost:3003/legs');
+const legoBodys = () => axios.get(`${baseUrl}/torsos.json`);
+
+const legoLegs = () => axios.get(`${baseUrl}/legs.json`);
 
 export default { legoHeads, legoBodys, legoLegs };
